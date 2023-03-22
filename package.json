@@ -6,12 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "jbrowse": "cd jbrowse && jbrowse admin-server"
   },
   "devDependencies": {
     "vite": "^4.1.0"
   },
   "dependencies": {
+    "@jbrowse/cli": "^2.4.1",
     "@webcontainer/api": "^1.0.0"
   }
 }

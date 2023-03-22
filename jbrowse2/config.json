@@ -1,0 +1,70 @@
+{
+  "configuration": {
+    "rpc": {
+      "defaultDriver": "WebWorkerRpcDriver",
+      "drivers": {
+        "MainThreadRpcDriver": {},
+        "WebWorkerRpcDriver": {}
+      }
+    },
+    "logoPath": {
+      "locationType": "UriLocation",
+      "uri": ""
+    }
+  },
+  "plugins": [],
+  "assemblies": [
+    {
+      "name": "hg38",
+      "aliases": [
+        "alias2",
+        "alias3"
+      ],
+      "sequence": {
+        "type": "ReferenceSequenceTrack",
+        "trackId": "hg38-1679413328880",
+        "adapter": {
+          "type": "BgzipFastaAdapter",
+          "fastaLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://jbrowse.org/genomes/hg19/fasta/hg19.fa.gz"
+          },
+          "faiLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://jbrowse.org/genomes/hg19/fasta/hg19.fa.gz"
+          },
+          "metadataLocation": {
+            "locationType": "UriLocation",
+            "uri": "/path/to/fa.metadata.yaml"
+          },
+          "gziLocation": {
+            "locationType": "UriLocation",
+            "uri": "https://jbrowse.org/genomes/hg19/fasta/hg19.fa.gz"
+          }
+        },
+        "displays": [
+          {
+            "type": "LinearReferenceSequenceDisplay",
+            "displayId": "hg38-1679413328880-LinearReferenceSequenceDisplay",
+            "renderer": {
+              "type": "DivSequenceRenderer",
+              "height": 19
+            }
+          },
+          {
+            "type": "LinearGCContentDisplay",
+            "displayId": "hg38-1679413328880-LinearGCContentDisplay"
+          }
+        ]
+      },
+      "displayName": "Human genome 38"
+    }
+  ],
+  "tracks": [],
+  "internetAccounts": [],
+  "aggregateTextSearchAdapters": [],
+  "connections": [],
+  "defaultSession": {
+    "name": "New Session"
+  }
+}

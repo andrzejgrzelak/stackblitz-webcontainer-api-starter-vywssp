@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 import { WebContainer } from '@webcontainer/api';
 import { files } from './files';
 
@@ -18,26 +18,31 @@ window.addEventListener('load', async () => {
   const exitCode = await installDependencies();
   if (exitCode !== 0) {
     throw new Error('Installation failed');
-  };
+  }
 
   startDevServer();
 });
 
 async function installDependencies() {
   // Install dependencies
-  const installProcess = await webcontainerInstance.spawn('npm', ['install']);
-  installProcess.output.pipeTo(new WritableStream({
-    write(data) {
-      console.log(data);
-    }
-  }))
+  const installProcess = await webcontainerInstance.spawn('npm', [
+    'install',
+    '@jbrowse/cli',
+  ]);
+  installProcess.output.pipeTo(
+    new WritableStream({
+      write(data) {
+        console.log(data);
+      },
+    })
+  );
   // Wait for install command to exit
   return installProcess.exit;
 }
 
 async function startDevServer() {
   // Run `npm run start` to start the Express app
-  await webcontainerInstance.spawn('npm', ['run', 'start']);
+  await webcontainerInstance.spawn('npm', ['run', 'jbrowse']);
 
   // Wait for `server-ready` event
   webcontainerInstance.on('server-ready', (port, url) => {
@@ -62,7 +67,7 @@ document.querySelector('#app').innerHTML = `
       <iframe src="loading.html"></iframe>
     </div>
   </div>
-`
+`;
 
 /** @type {HTMLIFrameElement | null} */
 const iframeEl = document.querySelector('iframe');
